@@ -30,7 +30,7 @@ def scan_sensitive(file_path):
 
 def check_permissions(file_path):
     if platform.system() == "Windows":
-	    return False
+        return False
     st = os.stat(file_path)
     if st.st_mode & stat.S_IWOTH:
         return f"File {file_path} is world-writable!"
