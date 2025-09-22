@@ -6,11 +6,11 @@ from datetime import datetime
 
 LOG_FILE = "gitsecure.log"
 SENSITIVE_PATTERNS = [
-    r"apikey\s*=\s*['\"]{1}[A-Za-z0-9_\-]{16,}['\"]{1}",
-    r"secret\s*=\s*['\"]{1}[A-Za-z0-9_\-]{8,}['\"]{1}",
-    r"password\s*=\s*['\"]{1}[^\s]{4,}['\"]{1}",
-    r"token\s*=\s*['\"]{1}[A-Za-z0-9_]{10,}['\"]{1}",
-    r"(AKIA|ASIA)[A-Z0-9]{16}"
+    r"apikey\s*=\s*['\"][A-Za-z0-9\-_]{16,}['\"]",     # API keys
+    r"secret\s*=\s*['\"].{8,}['\"]",                   # generic secret
+    r"password\s*=\s*['\"].{4,}['\"]",                 # password >= 4 chars
+    r"token\s*=\s*['\"].{10,}['\"]",                   # tokens
+    r"(AKIA|ASIA)[A-Z0-9]{16}"                         # AWS keys
 ]
 
 def log(msg):
